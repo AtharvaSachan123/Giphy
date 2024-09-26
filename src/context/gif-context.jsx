@@ -10,7 +10,7 @@ const GifContext = createContext();
 const GifProvider = ({children}) => {
 
   const [gifs, setGifs] = useState([]);
-  const [filter, setFilter] = useState("gifs");
+  const [filter, setFilter] = useState();
   const [favourites, setFavourites] = useState([]);
 
     const gf= new GiphyFetch( import.meta.env.VITE_GIPHY_API_KEY);

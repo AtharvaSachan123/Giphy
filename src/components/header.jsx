@@ -14,6 +14,7 @@ const Header = () => {
     setCategories(data);
  }
  useEffect(()=>{
+  
   console.log(categories);
   fetchGifCategories();
  })
