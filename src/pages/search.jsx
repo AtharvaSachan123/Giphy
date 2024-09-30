@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { GifState } from "../context/gif-context";
 import FilterGif from "../components/filter-gif";
-import Gif from "../components/Gif"; // Assuming you have a Gif component to display individual gifs
+import Gif from "../components/gif"; // Assuming you have a Gif component to display individual gifs
 
 const SearchPage = () => {
   const [searchResults, setSearchResults] = useState([]);
