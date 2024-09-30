@@ -13,6 +13,19 @@ const GifProvider = ({children}) => {
   const [filter, setFilter] = useState();
   const [favourites, setFavourites] = useState([]);
 
+  const addToFavorites=(id)=>{
+    if(favourites.includes(id)){
+     const updatedFavourites= favourites.filter((f)=>f!==id);
+      localStorage.setItem("favouritesGIFs", JSON.stringify(updatedFavourites));
+      setFavourites(updatedFavourites);
+  }else{
+    const updatedFavourites=[...favourites];
+    updatedFavourites.push(id);
+    localStorage.setItem("favouritesGIFs", JSON.stringify(updatedFavourites));
+    setFavourites(updatedFavourites);
+  }
+}
+
     const gf= new GiphyFetch( import.meta.env.VITE_GIPHY_API_KEY);
 
   return <GifContext.Provider value={{gf,gifs,setGifs,filter,setFilter,favourites}}>{children}</GifContext.Provider>;
