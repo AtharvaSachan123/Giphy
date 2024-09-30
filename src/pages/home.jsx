@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
   import { useEffect } from "react";
 import { GifState } from "../context/gif-context"
 import Gif from "../components/gif"
@@ -6,7 +7,7 @@ const Home = () => {
   const {gf,gifs,setGifs,filter,setFilter,favourites} =GifState();
 
   const fetchTrandingGIFs=async()=>{
-    const {data} = await gf.trending({limit:20,
+    const {data} = await gf.trending({limit:40,
       type:filter,
       rating:"g",
     });
