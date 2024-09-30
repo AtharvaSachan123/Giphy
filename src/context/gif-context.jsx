@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { GiphyFetch } from "@giphy/js-fetch-api";
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { useState } from "react";
 
 const GifContext = createContext();
@@ -26,9 +26,17 @@ const GifProvider = ({children}) => {
   }
 }
 
+useEffect (()=>{
+  const favourites= JSON.parse(localStorage.getItem("favouritesGIFs"));
+  
+    setFavourites(favourites || []);
+  
+},[]);
+
+
     const gf= new GiphyFetch( import.meta.env.VITE_GIPHY_API_KEY);
 
-  return <GifContext.Provider value={{gf,gifs,setGifs,filter,setFilter,favourites}}>{children}</GifContext.Provider>;
+  return <GifContext.Provider value={{gf,gifs,setGifs,filter,setFilter,favourites,addToFavorites}}>{children}</GifContext.Provider>;
 }
 
 export const GifState =()=>{
